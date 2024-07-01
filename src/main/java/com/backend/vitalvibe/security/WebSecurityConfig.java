@@ -1,5 +1,8 @@
 package com.backend.vitalvibe.security;
 
+import com.backend.vitalvibe.security.jwt.AuthTokenFilter;
+import com.backend.vitalvibe.security.jwt.AuthenticationEntryJwt;
+import com.backend.vitalvibe.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
