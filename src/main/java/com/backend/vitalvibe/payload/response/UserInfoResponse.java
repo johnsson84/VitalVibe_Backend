@@ -1,4 +1,4 @@
-package payload.response;
+package com.backend.vitalvibe.payload.response;
 
 import java.util.List;
 

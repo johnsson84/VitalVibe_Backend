@@ -1,5 +1,12 @@
 package com.backend.vitalvibe.controllers;
 
+import com.backend.vitalvibe.models.ERole;
+import com.backend.vitalvibe.models.Role;
+import com.backend.vitalvibe.models.User;
+import com.backend.vitalvibe.payload.request.SigninRequest;
+import com.backend.vitalvibe.payload.request.SignupRequest;
+import com.backend.vitalvibe.security.jwt.JwtUtils;
+import com.backend.vitalvibe.security.services.UserDetailsImpl;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +19,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import com.backend.vitalvibe.payload.response.MessageResponse;
+import com.backend.vitalvibe.payload.response.UserInfoResponse;
+import repositories.RoleRepository;
+import repositories.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
