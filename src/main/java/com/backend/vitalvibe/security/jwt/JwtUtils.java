@@ -18,13 +18,13 @@ public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
     // kommentera vilka paket som importeras
 
-    @Value("${vitalvibe.app.jwtSecret}")
+    @Value("${jwtSecret}")
     private String jwtSecret;
 
-    @Value("${vitalvibe.app.jwtExpirationMs}")
+    @Value("${jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    @Value("${vitalvibe.app.jwtCookieName}")
+    @Value("${jwtCookieName}")
     private String jwtCookie;
 
 
