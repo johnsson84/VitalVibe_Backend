@@ -1,5 +1,6 @@
 package com.backend.vitalvibe.repositories;
 
+import com.backend.vitalvibe.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
