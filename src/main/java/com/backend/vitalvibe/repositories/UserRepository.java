@@ -1,4 +1,4 @@
-package repositories;
+package com.backend.vitalvibe.repositories;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

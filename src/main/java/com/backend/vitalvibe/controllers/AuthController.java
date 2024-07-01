@@ -21,8 +21,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import com.backend.vitalvibe.payload.response.MessageResponse;
 import com.backend.vitalvibe.payload.response.UserInfoResponse;
-import repositories.RoleRepository;
-import repositories.UserRepository;
+import com.backend.vitalvibe.repositories.RoleRepository;
+import com.backend.vitalvibe.repositories.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;

@@ -1,4 +1,4 @@
-package repositories;
+package com.backend.vitalvibe.repositories;
 
 import com.backend.vitalvibe.models.ERole;
 import com.backend.vitalvibe.models.Role;
