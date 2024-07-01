@@ -1,5 +1,7 @@
 package com.backend.vitalvibe.security.services;
 
+import com.backend.vitalvibe.models.User;
+import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
