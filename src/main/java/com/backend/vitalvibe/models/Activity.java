@@ -4,7 +4,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Document(collection = "activity")
 public class Activity {
@@ -15,17 +15,17 @@ public class Activity {
 
     private String activityName;
 
-    private double distance;
+    private Double distance;
 
-    private double time;
+    private Double time;
 
     // Later implement when gps can track each individual kilometer.
     // private double avg_speed;
 
     @CreatedDate
-    private Date date = new Date();
+    private LocalDate date = LocalDate.now();
 
-    private int calories;
+    private Integer calories;
 
     private String mood;
 
@@ -52,35 +52,35 @@ public class Activity {
         this.activityName = activityName;
     }
 
-    public double getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
-    public double getTime() {
+    public Double getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(Double time) {
         this.time = time;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public int getCalories() {
+    public Integer getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(Integer calories) {
         this.calories = calories;
     }
 
