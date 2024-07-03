@@ -94,11 +94,17 @@ public class AuthController {
                     .badRequest()
                     .body(new MessageResponse("Error: username already exists!"));
         }
+        if (userRepository.existsByEmail((signupRequest.getEmail()))) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: email already exists!"));
+        }
+
 
         // skapa userns konto
         User user = new User(signupRequest.getUsername(),
                 signupRequest.getEmail(),
-                encoder.encode(signupRequest.getPassword()));
+                encoder.encode(signupRequest.getPassword()), signupRequest.getFirstName(), signupRequest.getLastName(), signupRequest.getAge(), signupRequest.getVo2max());
 
         Set<String> strRoles = signupRequest.getRoles();
         Set<Role> roles = new HashSet<>();

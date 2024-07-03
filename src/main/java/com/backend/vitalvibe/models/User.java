@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
@@ -17,8 +16,31 @@ public class User {
     private String id;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(max = 15)
     private String username;
+
+    @NotBlank
+    @Size(max = 20)
+    private String firstName;
+
+    @NotBlank
+    @Size(max = 20)
+    private String lastName;
+
+    @NotBlank
+    @Size(max = 3)
+    private int age;
+
+
+    private double vo2max;
+    private String fivekm;
+    private String tenkm;
+    private String fifteenkm;
+    private String halfmarathon;
+    private String marathon;
+
+
+
 
     @NotBlank
     @Email
@@ -26,18 +48,21 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(max = 120)
+    @Size(max = 25)
     private String password;
 
     // role
-    @DBRef
-    private Set<Role> roles = new HashSet<>();
+     private Set<Role> roles = new HashSet<>();
     // ["ROLE_USER", "ROLE MODERATOR"]
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String firstName, String lastName, int age, double vo2max) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.vo2max = vo2max;
     }
 
     public String getId() {
@@ -79,5 +104,77 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public double getVo2max() {
+        return vo2max;
+    }
+
+    public void setVo2max(double vo2max) {
+        this.vo2max = vo2max;
+    }
+
+    public String getFivekm() {
+        return fivekm;
+    }
+
+    public void setFivekm(String fivekm) {
+        this.fivekm = fivekm;
+    }
+
+    public String getTenkm() {
+        return tenkm;
+    }
+
+    public void setTenkm(String tenkm) {
+        this.tenkm = tenkm;
+    }
+
+    public String getFifteenkm() {
+        return fifteenkm;
+    }
+
+    public void setFifteenkm(String fifteenkm) {
+        this.fifteenkm = fifteenkm;
+    }
+
+    public String getHalfmarathon() {
+        return halfmarathon;
+    }
+
+    public void setHalfmarathon(String halfmarathon) {
+        this.halfmarathon = halfmarathon;
+    }
+
+    public String getMarathon() {
+        return marathon;
+    }
+
+    public void setMarathon(String marathon) {
+        this.marathon = marathon;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
