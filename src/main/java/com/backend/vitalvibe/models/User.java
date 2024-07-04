@@ -1,8 +1,6 @@
 package com.backend.vitalvibe.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -27,8 +25,9 @@ public class User {
     @Size(max = 20)
     private String lastName;
 
-    @NotBlank
-    @Size(max = 3)
+    @NotNull
+    @Min(8)
+    @Max(25)
     private int age;
 
 
@@ -48,7 +47,7 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(max = 25)
+    @Size(min = 6, max = 40)
     private String password;
 
     // role

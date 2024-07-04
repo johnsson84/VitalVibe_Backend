@@ -1,76 +1,18 @@
-package com.backend.vitalvibe.payload.request;
+package com.backend.vitalvibe.payload.user;
 
-import jakarta.validation.constraints.*;
+public class UpdateUser {
 
-import java.util.Set;
-
-public class SignupRequest {
-    @NotBlank
-    @Size(min = 3, max = 20)
-    private String username;
-
-    @NotBlank
-    @Email
-    private String email;
-
-    @NotBlank
-    @Size(max = 20)
     private String firstName;
-
-    @NotBlank
-    @Size(max = 20)
     private String lastName;
-
-    @NotNull
-    @Min(8)
-    @Max(25)
     private int age;
-
-
     private double vo2max;
+    private String email;
     private String fivekm;
     private String tenkm;
     private String fifteenkm;
     private String halfmarathon;
     private String marathon;
-
-    private Set<String> roles;
-
-    @NotBlank
-    @Size(min = 6, max = 40)
     private String password;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Set<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -86,6 +28,14 @@ public class SignupRequest {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public double getVo2max() {
@@ -136,11 +86,19 @@ public class SignupRequest {
         this.marathon = marathon;
     }
 
-    public int getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
