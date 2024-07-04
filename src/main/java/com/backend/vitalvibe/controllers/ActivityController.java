@@ -2,6 +2,7 @@ package com.backend.vitalvibe.controllers;
 
 import com.backend.vitalvibe.models.Activity;
 import com.backend.vitalvibe.payload.activity.CreateActivity;
+import com.backend.vitalvibe.payload.activity.UpdateActivity;
 import com.backend.vitalvibe.services.ActivityService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,13 @@ public class ActivityController {
     @DeleteMapping("/delete/{activityId}")
     public ResponseEntity<?> deleteActivity(@PathVariable("activityId") String activityId) {
         return activityService.deleteActivity(activityId);
+    }
+
+    //Update an activity
+    @PreAuthorize("hasRole('USER')")
+    @PutMapping("/update")
+    public ResponseEntity<?> updateActivity(@RequestBody UpdateActivity updateActivity) {
+        Activity updatedActivity = activityService.updateActivity(updateActivity);
+        return ResponseEntity.ok(updatedActivity);
     }
 }

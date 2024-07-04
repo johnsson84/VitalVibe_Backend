@@ -1,7 +1,9 @@
 package com.backend.vitalvibe.services;
 
+import com.backend.vitalvibe.exceptions.EntityNotFoundException;
 import com.backend.vitalvibe.models.Activity;
 import com.backend.vitalvibe.payload.activity.CreateActivity;
+import com.backend.vitalvibe.payload.activity.UpdateActivity;
 import com.backend.vitalvibe.repositories.ActivityRepository;
 import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ActivityService {
@@ -45,5 +48,18 @@ public class ActivityService {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Activity not found");
         }
+    }
+
+    // Update an activity
+    public Activity updateActivity(UpdateActivity updateActivity) {
+        return activityRepository.findById(updateActivity.getId()).map(exisitngActivity -> {
+            Optional.ofNullable(updateActivity.getActivityName()).ifPresent(exisitngActivity::setActivityName);
+            Optional.ofNullable(updateActivity.getDistance()).ifPresent(exisitngActivity::setDistance);
+            Optional.ofNullable(updateActivity.getTime()).ifPresent(exisitngActivity::setTime);
+            Optional.ofNullable(updateActivity.getCalories()).ifPresent(exisitngActivity::setCalories);
+            Optional.ofNullable(updateActivity.getMood()).ifPresent(exisitngActivity::setMood);
+
+            return activityRepository.save(exisitngActivity);
+        }).orElseThrow(() -> new EntityNotFoundException("Activity with id " + updateActivity.getId() + " not found"));
     }
 }
