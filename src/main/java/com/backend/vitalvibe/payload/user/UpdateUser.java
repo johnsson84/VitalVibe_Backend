@@ -4,8 +4,7 @@ public class UpdateUser {
 
     private String firstName;
     private String lastName;
-    private int age;
-    private double vo2max;
+    private Double vo2max;
     private String email;
     private String fivekm;
     private String tenkm;
@@ -30,19 +29,12 @@ public class UpdateUser {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getVo2max() {
+    public Double getVo2max() {
         return vo2max;
     }
 
-    public void setVo2max(double vo2max) {
+    public void setVo2max(Double vo2max) {
         this.vo2max = vo2max;
     }
 

@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //update user
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PutMapping("/update/{userId}")
     public ResponseEntity<?> updateUser(@Valid @RequestBody UpdateUser updateUser, @PathVariable("userId") String userId){
@@ -27,5 +28,18 @@ public class UserController {
         } catch (EntityNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
+    }
+
+    //delete user
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity<?> deleteUser(@Valid @PathVariable("userId") String userId){
+        try{
+            return userService.deleteUser(userId);
+
+        }catch (EntityNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+
     }
 }

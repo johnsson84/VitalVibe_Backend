@@ -28,10 +28,10 @@ public class User {
     @NotNull
     @Min(8)
     @Max(25)
-    private int age;
+    private Integer age;
 
 
-    private double vo2max;
+    private Double vo2max;
     private String fivekm;
     private String tenkm;
     private String fifteenkm;
@@ -120,11 +120,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public double getVo2max() {
+    public Double getVo2max() {
         return vo2max;
     }
 
-    public void setVo2max(double vo2max) {
+    public void setVo2max(Double vo2max) {
         this.vo2max = vo2max;
     }
 
@@ -168,11 +168,11 @@ public class User {
         this.marathon = marathon;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }
