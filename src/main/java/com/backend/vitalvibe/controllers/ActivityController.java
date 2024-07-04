@@ -33,13 +33,20 @@ public class ActivityController {
 
     // List all own activities
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/list-all/{user_id}")
-    public ResponseEntity<?> listAllActivities(@PathVariable("user_id") String userId) {
+    @GetMapping("/list-all/{userId}")
+    public ResponseEntity<?> listAllActivities(@PathVariable("userId") String userId) {
         List<Activity> foundActivities = activityService.listAllActivities(userId);
         if (foundActivities.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Activities not found");
         } else {
           return ResponseEntity.ok(foundActivities);
         }
+    }
+
+    // Delete an activity
+    @PreAuthorize("hasRole('USER')")
+    @DeleteMapping("/delete/{activityId}")
+    public ResponseEntity<?> deleteActivity(@PathVariable("activityId") String activityId) {
+        return activityService.deleteActivity(activityId);
     }
 }
