@@ -104,7 +104,7 @@ public class AuthController {
         // skapa userns konto
         User user = new User(signupRequest.getUsername(),
                 signupRequest.getEmail(),
-                encoder.encode(signupRequest.getPassword()), signupRequest.getFirstName(), signupRequest.getLastName(),signupRequest.getAge());
+                encoder.encode(signupRequest.getPassword()), signupRequest.getFirstName(), signupRequest.getLastName(),signupRequest.getAge(), signupRequest.getVo2max());
 
         Set<String> strRoles = signupRequest.getRoles();
         Set<Role> roles = new HashSet<>();

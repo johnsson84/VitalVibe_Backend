@@ -54,13 +54,14 @@ public class User {
      private Set<Role> roles = new HashSet<>();
     // ["ROLE_USER", "ROLE MODERATOR"]
 
-    public User(String username, String email, String password, String firstName, String lastName, int age) {
+    public User(String username, String email, String password, String firstName, String lastName, Integer age, Double vo2max) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.vo2max = vo2max;
     }
 
     public String getId() {
