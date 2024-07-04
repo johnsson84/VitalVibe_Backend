@@ -5,7 +5,20 @@ import jakarta.validation.constraints.NotNull;
 
 public class CreateActivity {
 
+    /* Quick help Postman
+    {
+        "userId": "String",
+        "acitivityName": "String",
+        "distance": double,
+        "time": double,
+        "calories": int,
+        "mood": "String
+    }
+    * */
+
     // VARIABLES
+    @NotBlank
+    private String userId;
     @NotBlank
     private String activityName;
 
@@ -61,5 +74,13 @@ public class CreateActivity {
 
     public void setMood(@NotBlank String mood) {
         this.mood = mood;
+    }
+
+    public @NotBlank String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NotBlank String userId) {
+        this.userId = userId;
     }
 }

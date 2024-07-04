@@ -7,6 +7,8 @@ import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActivityService {
     @Autowired
@@ -15,8 +17,10 @@ public class ActivityService {
     @Autowired
     ActivityRepository activityRepository;
 
+    // Add a activity
     public Activity createActivity(CreateActivity activity) {
         Activity newActivity = new Activity();
+        newActivity.setUserId(activity.getUserId());
         newActivity.setActivityName(activity.getActivityName());
         newActivity.setDistance(activity.getDistance());
         newActivity.setTime(activity.getTime());
@@ -24,5 +28,10 @@ public class ActivityService {
         newActivity.setMood(activity.getMood());
 
         return activityRepository.save(newActivity);
+    }
+
+    // List all activities of a user
+    public List<Activity> listAllActivities(String userId) {
+        return activityRepository.findByUserId(userId);
     }
 }

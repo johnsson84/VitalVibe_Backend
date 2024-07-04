@@ -13,6 +13,8 @@ public class Activity {
     @Id
     private String id;
 
+    private String userId;
+
     private String activityName;
 
     private Double distance;
@@ -90,5 +92,13 @@ public class Activity {
 
     public void setMood(String mood) {
         this.mood = mood;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
