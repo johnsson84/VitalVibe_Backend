@@ -30,8 +30,10 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getEmail()).ifPresent(existingUser::setEmail);
                     Optional.ofNullable(updateUserDTO.getFirstName()).ifPresent(existingUser::setFirstName);
                     Optional.ofNullable(updateUserDTO.getLastName()).ifPresent(existingUser::setLastName);
-                    Optional.ofNullable(updateUserDTO.getAge()).ifPresent(existingUser::setAge);
-                    Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
+                    //Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
+                    Optional.ofNullable(updateUserDTO.getVo2max())
+                            .filter(newVo2max -> !newVo2max.equals(existingUser.getVo2max()))
+                            .ifPresent(existingUser::setVo2max);
                     Optional.ofNullable(updateUserDTO.getFivekm()).ifPresent(existingUser::setFivekm);
                     Optional.ofNullable(updateUserDTO.getTenkm()).ifPresent(existingUser::setTenkm);
                     Optional.ofNullable(updateUserDTO.getFifteenkm()).ifPresent(existingUser::setFifteenkm);
