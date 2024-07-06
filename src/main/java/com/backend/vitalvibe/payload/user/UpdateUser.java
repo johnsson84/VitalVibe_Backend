@@ -1,19 +1,29 @@
 package com.backend.vitalvibe.payload.user;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class UpdateUser {
-
+    @NotBlank
+    @Size(max = 20)
     private String firstName;
+    @NotBlank
+    @Size(max = 20)
     private String lastName;
     private Double vo2max;
+    @NotBlank
     @Email
+    @Indexed(unique = true)
     private String email;
     private String fivekm;
     private String tenkm;
     private String fifteenkm;
     private String halfmarathon;
     private String marathon;
+    @NotBlank
+    @Size(min = 6, max = 40)
     private String password;
 
     public String getFirstName() {
