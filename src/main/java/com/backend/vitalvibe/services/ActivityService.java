@@ -51,8 +51,8 @@ public class ActivityService {
     }
 
     // Update an activity
-    public Activity updateActivity(UpdateActivity updateActivity) {
-        return activityRepository.findById(updateActivity.getId()).map(exisitngActivity -> {
+    public Activity updateActivity(String activityId, UpdateActivity updateActivity) {
+        return activityRepository.findById(activityId).map(exisitngActivity -> {
             Optional.ofNullable(updateActivity.getActivityName()).ifPresent(exisitngActivity::setActivityName);
             Optional.ofNullable(updateActivity.getDistance()).ifPresent(exisitngActivity::setDistance);
             Optional.ofNullable(updateActivity.getTime()).ifPresent(exisitngActivity::setTime);
@@ -60,6 +60,6 @@ public class ActivityService {
             Optional.ofNullable(updateActivity.getMood()).ifPresent(exisitngActivity::setMood);
 
             return activityRepository.save(exisitngActivity);
-        }).orElseThrow(() -> new EntityNotFoundException("Activity with id " + updateActivity.getId() + " not found"));
+        }).orElseThrow(() -> new EntityNotFoundException("Activity with id " + activityId + " not found"));
     }
 }

@@ -51,11 +51,12 @@ public class ActivityController {
         return activityService.deleteActivity(activityId);
     }
 
-    //Update an activity
+    // Update an activity
     @PreAuthorize("hasRole('USER')")
-    @PutMapping("/update")
-    public ResponseEntity<?> updateActivity(@RequestBody UpdateActivity updateActivity) {
-        Activity updatedActivity = activityService.updateActivity(updateActivity);
+    @PutMapping("/update/{activityId}")
+    public ResponseEntity<?> updateActivity(@PathVariable("activityId") String activityId,
+                                            @RequestBody UpdateActivity updateActivity) {
+        Activity updatedActivity = activityService.updateActivity(activityId, updateActivity);
         return ResponseEntity.ok(updatedActivity);
     }
 }

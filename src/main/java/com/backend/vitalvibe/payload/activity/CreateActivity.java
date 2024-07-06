@@ -21,16 +21,12 @@ public class CreateActivity {
     private String userId;
     @NotBlank
     private String activityName;
-
     @NotNull
     private Double distance;
-
     @NotNull
     private Double time;
-
     // Not necessary
     private Integer calories;
-
     @NotBlank
     private String mood;
 

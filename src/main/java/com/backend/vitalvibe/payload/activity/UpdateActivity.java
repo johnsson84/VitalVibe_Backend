@@ -2,7 +2,7 @@ package com.backend.vitalvibe.payload.activity;
 
 /* Quick help Postman
     {
-        "acitivityName": "String",
+        "activityName": "String",
         "distance": double,
         "time": double,
         "calories": int,
@@ -12,29 +12,14 @@ package com.backend.vitalvibe.payload.activity;
 
 public class UpdateActivity {
 
-    private String id;
-
     private String activityName;
-
     private Double distance;
-
     private Double time;
-
     private Integer calories;
-
     private String mood;
 
 
     // GETTERS & SETTERS
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        id = id;
-    }
 
     public String getActivityName() {
         return activityName;
