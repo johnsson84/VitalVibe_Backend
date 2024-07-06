@@ -13,6 +13,7 @@ public class Activity {
     @Id
     private String id;
     private String userId;
+    // Dropdown for "Aktivitet : Promenad - Löpning - Cykling"
     private String activityName;
     private Double distance;
     private Double time;
