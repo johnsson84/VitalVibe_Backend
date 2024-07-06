@@ -1,10 +1,13 @@
 package com.backend.vitalvibe.payload.user;
 
+import jakarta.validation.constraints.Email;
+
 public class UpdateUser {
 
     private String firstName;
     private String lastName;
     private Double vo2max;
+    @Email
     private String email;
     private String fivekm;
     private String tenkm;

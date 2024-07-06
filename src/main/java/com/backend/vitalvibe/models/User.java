@@ -26,8 +26,6 @@ public class User {
     private String lastName;
 
     @NotNull
-    @Min(8)
-    @Max(25)
     private Integer age;
 
 
