@@ -23,7 +23,7 @@ public class ActivityService {
     ActivityRepository activityRepository;
 
     // Add a activity
-    public Activity createActivity(CreateActivity activity) {
+    public ResponseEntity<?> createActivity(CreateActivity activity) {
         Activity newActivity = new Activity();
         newActivity.setUserId(activity.getUserId());
         newActivity.setActivityName(activity.getActivityName());
@@ -32,7 +32,8 @@ public class ActivityService {
         newActivity.setCalories(activity.getCalories());
         newActivity.setMood(activity.getMood());
 
-        return activityRepository.save(newActivity);
+        activityRepository.save(newActivity);
+        return ResponseEntity.ok("Activity was created!");
     }
 
     // List all activities of a user
