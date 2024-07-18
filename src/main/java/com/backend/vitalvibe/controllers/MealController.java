@@ -51,4 +51,11 @@ public class MealController {
         Meal updatedMeal = mealService.updateMeal(mealId, meal);
         return ResponseEntity.ok(updatedMeal);
     }
+
+    // Delete an activity
+    @PreAuthorize("hasRole('USER')")
+    @DeleteMapping("/delete/{mealId}")
+    public ResponseEntity<?> deleteMeal(@PathVariable("mealId") String mealId) {
+        return mealService.deleteMeal(mealId);
+    }
 }
