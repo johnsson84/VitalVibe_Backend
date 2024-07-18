@@ -5,6 +5,23 @@ import jakarta.validation.constraints.NotNull;
 
 public class CreateMeal {
 
+    /*
+    Quick help for Postman
+
+    {
+    "userId": "String",
+    "mealType": "String",
+    "name": "String",
+    "amount": "double",
+    "calories": "integer"
+    }
+
+    */
+
+
+
+
+
     // DTO VARIABLES
     @NotBlank
     private String userId;

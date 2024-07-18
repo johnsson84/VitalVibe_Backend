@@ -2,6 +2,18 @@ package com.backend.vitalvibe.payload.meal;
 
 public class UpdateMeal {
 
+    /*
+     Quick help for Postman
+    {
+     "mealType": "String",
+     "name": "String",
+     "amount": "double";
+     "calories": "integer"
+     }
+
+    * */
+
+
     private String mealType;
     private String name;
     private double amount;
