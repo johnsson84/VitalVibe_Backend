@@ -25,10 +25,10 @@ public class Meal {
     private String mealType;
     @NotBlank
     private String name;
-    @NotNull
-    private double amount;
-    @NotNull
-    private int calories;
+
+    private Double amount;
+
+    private Integer calories;
     @CreatedDate
     private LocalDate date = LocalDate.now();
 
@@ -45,12 +45,10 @@ public class Meal {
     public LocalDate getDate() {
         return date;
     }
-    @NotNull
-    public int getCalories() {
+    public Integer getCalories() {
         return calories;
     }
-    @NotNull
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
     public @NotBlank String getName() {
@@ -77,10 +75,10 @@ public class Meal {
     public void setMealType(@NotBlank String mealType) {
         this.mealType = mealType;
     }
-    public void setCalories(@NotNull int calories) {
+    public void setCalories( Integer calories) {
         this.calories = calories;
     }
-    public void setAmount(@NotNull double amount) {
+    public void setAmount( Double amount) {
         this.amount = amount;
     }
     public void setDate(LocalDate date) {

@@ -16,20 +16,20 @@ public class UpdateMeal {
 
     private String mealType;
     private String name;
-    private double amount;
-    private int calories;
+    private Double amount;
+    private Integer calories;
 
     // GETTERS
     public String getMealType() {
         return mealType;
     }
-    public int getCalories() {
+    public Integer getCalories() {
         return calories;
     }
     public String getName() {
         return name;
     }
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -37,10 +37,10 @@ public class UpdateMeal {
     public void setMealType(String mealType) {
         this.mealType = mealType;
     }
-    public void setCalories(int calories) {
+    public void setCalories(Integer calories) {
         this.calories = calories;
     }
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
     public void setName(String name) {
