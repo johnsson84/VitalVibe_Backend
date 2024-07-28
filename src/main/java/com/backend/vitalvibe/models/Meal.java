@@ -1,12 +1,12 @@
 package com.backend.vitalvibe.models;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Document(collection = "meals")
 public class Meal {
@@ -23,10 +23,12 @@ public class Meal {
     // typ av måltid = (frukost, lunch, middag, kvällsmat, snacks
     @NotBlank
     private String mealType;
-    @NotBlank
-    private String name;
 
-    private Double amount;
+
+
+
+    ArrayList<String> content = new ArrayList<>();
+
 
     private Integer calories;
     @CreatedDate
@@ -48,12 +50,8 @@ public class Meal {
     public Integer getCalories() {
         return calories;
     }
-    public Double getAmount() {
-        return amount;
-    }
-    public @NotBlank String getName() {
-        return name;
-    }
+
+
     public @NotBlank String getMealType() {
         return mealType;
     }
@@ -69,19 +67,23 @@ public class Meal {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    public void setName(@NotBlank String name) {
-        this.name = name;
-    }
+
     public void setMealType(@NotBlank String mealType) {
         this.mealType = mealType;
     }
     public void setCalories( Integer calories) {
         this.calories = calories;
     }
-    public void setAmount( Double amount) {
-        this.amount = amount;
-    }
+
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public ArrayList getContent() {
+        return content;
+    }
+
+    public void setContent(ArrayList content) {
+        this.content = content;
     }
 }

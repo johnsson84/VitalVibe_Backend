@@ -29,8 +29,7 @@ public class MealService {
         Meal newMeal = new Meal();
         newMeal.setUserId(meal.getUserId());
         newMeal.setMealType(meal.getMealType());
-        newMeal.setName(meal.getName());
-        newMeal.setAmount(meal.getAmount());
+        newMeal.setContent(meal.getContent());
         newMeal.setCalories(meal.getCalories());
 
         mealRepository.save(newMeal);
@@ -47,8 +46,7 @@ public class MealService {
 
         return mealRepository.findById(mealId).map(existingMeal -> {
             Optional.ofNullable(updateMeal.getMealType()).ifPresent(existingMeal::setMealType);
-            Optional.ofNullable(updateMeal.getName()).ifPresent(existingMeal::setName);
-            Optional.ofNullable(updateMeal.getAmount()).ifPresent(existingMeal::setAmount);
+            Optional.ofNullable(updateMeal.getContent()).ifPresent(existingMeal::setContent);
             Optional.ofNullable(updateMeal.getCalories()).ifPresent(existingMeal::setCalories);
 
             return mealRepository.save(existingMeal);

@@ -1,5 +1,7 @@
 package com.backend.vitalvibe.payload.meal;
 
+import java.util.ArrayList;
+
 public class UpdateMeal {
 
     /*
@@ -15,8 +17,7 @@ public class UpdateMeal {
 
 
     private String mealType;
-    private String name;
-    private Double amount;
+    private ArrayList content;
     private Integer calories;
 
     // GETTERS
@@ -26,12 +27,8 @@ public class UpdateMeal {
     public Integer getCalories() {
         return calories;
     }
-    public String getName() {
-        return name;
-    }
-    public Double getAmount() {
-        return amount;
-    }
+
+
 
     // SETTERS
     public void setMealType(String mealType) {
@@ -40,10 +37,13 @@ public class UpdateMeal {
     public void setCalories(Integer calories) {
         this.calories = calories;
     }
-    public void setAmount(Double amount) {
-        this.amount = amount;
+
+
+    public ArrayList getContent() {
+        return content;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setContent(ArrayList content) {
+        this.content = content;
     }
 }
