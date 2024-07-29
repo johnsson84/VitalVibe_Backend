@@ -3,6 +3,8 @@ package com.backend.vitalvibe.payload.meal;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
+
 public class CreateMeal {
 
     /*
@@ -11,8 +13,7 @@ public class CreateMeal {
     {
     "userId": "String",
     "mealType": "String",
-    "name": "String",
-    "amount": "double",
+    "content": "arrayList",
     "calories": "integer"
     }
 
@@ -28,27 +29,23 @@ public class CreateMeal {
 
     @NotBlank
     private String mealType;
-    @NotBlank
-    private String name;
+
     @NotNull
-    private double amount;
+    private ArrayList content;
     @NotNull
     private int calories;
 
     // GETTERS
-    public @NotBlank String getUserId() {
+    @NotBlank
+    public String getUserId() {
         return userId;
     }
-    public @NotBlank String getMealType() {
+    @NotBlank
+    public  String getMealType() {
         return mealType;
     }
-    public @NotBlank String getName() {
-        return name;
-    }
-    @NotNull
-    public double getAmount() {
-        return amount;
-    }
+
+
     @NotNull
     public int getCalories() {
         return calories;
@@ -62,13 +59,17 @@ public class CreateMeal {
     public void setMealType(@NotBlank String mealType) {
         this.mealType = mealType;
     }
-    public void setName(@NotBlank String name) {
-        this.name = name;
-    }
-    public void setAmount(@NotNull double amount) {
-        this.amount = amount;
-    }
+
+
     public void setCalories(@NotNull int calories) {
         this.calories = calories;
+    }
+
+    public ArrayList getContent() {
+        return content;
+    }
+
+    public void setContent(ArrayList content) {
+        this.content = content;
     }
 }
