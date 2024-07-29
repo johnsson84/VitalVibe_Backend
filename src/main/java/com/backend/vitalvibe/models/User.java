@@ -36,7 +36,7 @@ public class User {
     private String halfmarathon;
     private String marathon;
 
-
+    private int themeColor = 1;
 
 
     @NotBlank
@@ -173,5 +173,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public int getThemeColor() {
+        return themeColor;
+    }
+
+    public void setThemeColor(int themeColor) {
+        this.themeColor = themeColor;
     }
 }
