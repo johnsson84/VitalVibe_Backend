@@ -19,14 +19,16 @@ public class UserDetailsImpl implements UserDetails {
     private String email;
     @JsonIgnore
     private String password;
+    private int themeColor;
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public UserDetailsImpl(String id, String username, String email, String password,
+    public UserDetailsImpl(String id, String username, String email, int themeColor, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.themeColor = themeColor;
         this.password = password;
         this.authorities = authorities;
     }
@@ -40,6 +42,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
+                user.getThemeColor(),
                 user.getPassword(),
                 authorities);
     }
@@ -66,6 +69,10 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public int getThemeColor() {
+        return themeColor;
     }
 
     @Override
