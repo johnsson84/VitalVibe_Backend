@@ -19,11 +19,11 @@ public class UserDetailsImpl implements UserDetails {
     private String email;
     @JsonIgnore
     private String password;
-    private int themeColor;
+    private Integer themeColor;
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public UserDetailsImpl(String id, String username, String email, int themeColor, String password,
+    public UserDetailsImpl(String id, String username, String email, Integer themeColor, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
@@ -71,7 +71,7 @@ public class UserDetailsImpl implements UserDetails {
         return username;
     }
 
-    public int getThemeColor() {
+    public Integer getThemeColor() {
         return themeColor;
     }
 
