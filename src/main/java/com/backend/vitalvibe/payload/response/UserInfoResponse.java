@@ -7,12 +7,14 @@ public class UserInfoResponse {
     private String id;
     private String username;
     private String email;
+    private Integer themeColor;
     private List<String> role;
 
-    public UserInfoResponse(String id, String username, String email, List<String> role) {
+    public UserInfoResponse(String id, String username, String email, Integer themeColor, List<String> role) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.themeColor = themeColor;
         this.role = role;
     }
 
@@ -46,5 +48,13 @@ public class UserInfoResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getThemeColor() {
+        return themeColor;
+    }
+
+    public void setThemeColor(Integer themeColor) {
+        this.themeColor = themeColor;
     }
 }

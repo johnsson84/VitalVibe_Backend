@@ -1,19 +1,15 @@
 package com.backend.vitalvibe.payload.user;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 public class UpdateUser {
-    @NotBlank
     @Size(max = 20)
     private String firstName;
-    @NotBlank
     @Size(max = 20)
     private String lastName;
     private Double vo2max;
-    @NotBlank
     @Email
     @Indexed(unique = true)
     private String email;
@@ -22,7 +18,7 @@ public class UpdateUser {
     private String fifteenkm;
     private String halfmarathon;
     private String marathon;
-    @NotBlank
+    private Integer themeColor;
     @Size(min = 6, max = 40)
     private String password;
 
@@ -105,5 +101,13 @@ public class UpdateUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getThemeColor() {
+        return themeColor;
+    }
+
+    public void setThemeColor(Integer themeColor) {
+        this.themeColor = themeColor;
     }
 }

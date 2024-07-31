@@ -39,7 +39,7 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getFifteenkm()).ifPresent(existingUser::setFifteenkm);
                     Optional.ofNullable(updateUserDTO.getHalfmarathon()).ifPresent(existingUser::setHalfmarathon);
                     Optional.ofNullable(updateUserDTO.getMarathon()).ifPresent(existingUser::setMarathon);
-
+                    Optional.ofNullable(updateUserDTO.getThemeColor()).ifPresent(existingUser::setThemeColor);
 
                     return userRepository.save(existingUser);
                 })
