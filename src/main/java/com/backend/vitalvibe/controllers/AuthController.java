@@ -140,4 +140,14 @@ public class AuthController {
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully"));
     }
+
+    // Logga ut
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser() {
+        // Generera en ny cookie som är tom
+        ResponseCookie jwtCookie = jwtUtils.getCleanJwtCookie();
+        // Skicka med den tomma cookien till webbläsaren
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+                .body("Logged out successfully");
+    }
 }
