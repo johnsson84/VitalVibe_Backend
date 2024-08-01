@@ -57,7 +57,7 @@ public class JwtUtils {
 
     // rensa gammal cookie
     public ResponseCookie getCleanJwtCookie() {
-        return ResponseCookie.from(jwtCookie, "").path("/api").sameSite("Strict").build();
+        return ResponseCookie.from(jwtCookie, "empty.cookie.hahaha").path("/api").sameSite("Strict").build();
     }
 
     // OBS parseClaimsJws inte Jwt
