@@ -5,6 +5,10 @@ import com.backend.vitalvibe.models.Role;
 import com.backend.vitalvibe.models.User;
 import com.backend.vitalvibe.payload.request.SigninRequest;
 import com.backend.vitalvibe.payload.request.SignupRequest;
+import com.backend.vitalvibe.payload.response.MessageResponse;
+import com.backend.vitalvibe.payload.response.UserInfoResponse;
+import com.backend.vitalvibe.repositories.RoleRepository;
+import com.backend.vitalvibe.repositories.UserRepository;
 import com.backend.vitalvibe.security.jwt.JwtUtils;
 import com.backend.vitalvibe.security.services.UserDetailsImpl;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,10 +23,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import com.backend.vitalvibe.payload.response.MessageResponse;
-import com.backend.vitalvibe.payload.response.UserInfoResponse;
-import com.backend.vitalvibe.repositories.RoleRepository;
-import com.backend.vitalvibe.repositories.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
@@ -139,5 +139,16 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully"));
+    }
+
+    // Logga ut
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser() {
+        // Generera en ny cookie som är tom
+        ResponseCookie jwtCookie = jwtUtils.getCleanJwtCookie();
+        // Skicka med den tomma cookien till webbläsaren
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+                .body("Logged out successfully");
+
     }
 }
