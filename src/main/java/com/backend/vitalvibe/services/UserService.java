@@ -1,7 +1,9 @@
 package com.backend.vitalvibe.services;
 
 import com.backend.vitalvibe.exceptions.EntityNotFoundException;
+import com.backend.vitalvibe.models.RunningResults;
 import com.backend.vitalvibe.models.User;
+import com.backend.vitalvibe.payload.user.UpdateRunning;
 import com.backend.vitalvibe.payload.user.UpdateUser;
 import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +36,11 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getFirstName()).ifPresent(existingUser::setFirstName);
                     Optional.ofNullable(updateUserDTO.getLastName()).ifPresent(existingUser::setLastName);
                     Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
-                    Optional.ofNullable(updateUserDTO.getFivekm()).ifPresent(existingUser::setFivekm);
+                    /*Optional.ofNullable(updateUserDTO.getFivekm()).ifPresent(existingUser::setFivekm);
                     Optional.ofNullable(updateUserDTO.getTenkm()).ifPresent(existingUser::setTenkm);
                     Optional.ofNullable(updateUserDTO.getFifteenkm()).ifPresent(existingUser::setFifteenkm);
                     Optional.ofNullable(updateUserDTO.getHalfmarathon()).ifPresent(existingUser::setHalfmarathon);
-                    Optional.ofNullable(updateUserDTO.getMarathon()).ifPresent(existingUser::setMarathon);
+                    Optional.ofNullable(updateUserDTO.getMarathon()).ifPresent(existingUser::setMarathon);*/
                     Optional.ofNullable(updateUserDTO.getThemeColor()).ifPresent(existingUser::setThemeColor);
 
                     return userRepository.save(existingUser);
@@ -59,5 +61,20 @@ public class UserService {
     // Get logged in users info
     public User getLoggedInUser(String userId) {
         return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
+    }
+
+    // update user running results
+    public User updateUserRunningResults(String userId, UpdateRunning updateRunning) {
+        User foundUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
+        RunningResults newRunningResults = new RunningResults();
+        if (foundUser.getRunningResults() == null) {
+            newRunningResults.setFivekm("0 min");
+        } else {
+            newRunningResults = foundUser.getRunningResults();
+        }
+
+        newRunningResults.setFivekm(updateRunning.getFivekm());
+        foundUser.setRunningResults(newRunningResults);
+        return userRepository.save(foundUser);
     }
 }

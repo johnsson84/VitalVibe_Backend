@@ -2,6 +2,7 @@ package com.backend.vitalvibe.controllers;
 
 import com.backend.vitalvibe.exceptions.EntityNotFoundException;
 import com.backend.vitalvibe.models.User;
+import com.backend.vitalvibe.payload.user.UpdateRunning;
 import com.backend.vitalvibe.payload.user.UpdateUser;
 import com.backend.vitalvibe.services.UserService;
 import jakarta.validation.Valid;
@@ -53,5 +54,16 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
 
+    }
+
+    // Add running result
+    @PutMapping("/addRunning/{userId}")
+    public ResponseEntity<?> addRunning(@PathVariable("userId") String userId, @RequestBody UpdateRunning updateRunning) {
+        try {
+            User updatedUser = userService.updateUserRunningResults(userId, updateRunning);
+            return ResponseEntity.ok(updatedUser);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 }

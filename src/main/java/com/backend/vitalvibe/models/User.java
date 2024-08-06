@@ -30,11 +30,12 @@ public class User {
 
 
     private Double vo2max;
-    private String fivekm;
+    /*private String fivekm;
     private String tenkm;
     private String fifteenkm;
     private String halfmarathon;
-    private String marathon;
+    private String marathon;*/
+    private RunningResults runningResults;
 
     private Integer themeColor = 1;
 
@@ -127,7 +128,7 @@ public class User {
         this.vo2max = vo2max;
     }
 
-    public String getFivekm() {
+    /*public String getFivekm() {
         return fivekm;
     }
 
@@ -165,7 +166,7 @@ public class User {
 
     public void setMarathon(String marathon) {
         this.marathon = marathon;
-    }
+    }*/
 
     public Integer getAge() {
         return age;
@@ -181,5 +182,13 @@ public class User {
 
     public void setThemeColor(Integer themeColor) {
         this.themeColor = themeColor;
+    }
+
+    public RunningResults getRunningResults() {
+        return runningResults;
+    }
+
+    public void setRunningResults(RunningResults runningResults) {
+        this.runningResults = runningResults;
     }
 }

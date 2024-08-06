@@ -13,11 +13,11 @@ public class UpdateUser {
     @Email
     @Indexed(unique = true)
     private String email;
-    private String fivekm;
+    /*private String fivekm;
     private String tenkm;
     private String fifteenkm;
     private String halfmarathon;
-    private String marathon;
+    private String marathon;*/
     private Integer themeColor;
     @Size(min = 6, max = 40)
     private String password;
@@ -47,7 +47,7 @@ public class UpdateUser {
         this.vo2max = vo2max;
     }
 
-    public String getFivekm() {
+    /*public String getFivekm() {
         return fivekm;
     }
 
@@ -85,7 +85,7 @@ public class UpdateUser {
 
     public void setMarathon(String marathon) {
         this.marathon = marathon;
-    }
+    }*/
 
     public String getPassword() {
         return password;
