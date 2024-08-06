@@ -55,4 +55,9 @@ public class UserService {
 
         return ResponseEntity.ok("User deleted");
     }
+
+    // Get logged in users info
+    public User getLoggedInUser(String userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
+    }
 }

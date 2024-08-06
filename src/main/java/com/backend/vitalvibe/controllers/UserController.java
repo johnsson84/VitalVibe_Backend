@@ -42,4 +42,15 @@ public class UserController {
         }
 
     }
+    // Get logged in user
+    @GetMapping("/findUser/{userId}")
+    public ResponseEntity<?> getLoggedInUser(@PathVariable("userId") String userId) {
+        try {
+            User loggedInUser = userService.getLoggedInUser(userId);
+            return ResponseEntity.ok(loggedInUser);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+
+    }
 }
