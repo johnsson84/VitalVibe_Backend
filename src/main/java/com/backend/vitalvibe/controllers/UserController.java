@@ -43,6 +43,7 @@ public class UserController {
 
     }
     // Get logged in user
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/findUser/{userId}")
     public ResponseEntity<?> getLoggedInUser(@PathVariable("userId") String userId) {
         try {
