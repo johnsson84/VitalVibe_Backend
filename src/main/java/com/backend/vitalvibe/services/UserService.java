@@ -33,6 +33,7 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getEmail()).ifPresent(existingUser::setEmail);
                     Optional.ofNullable(updateUserDTO.getFirstName()).ifPresent(existingUser::setFirstName);
                     Optional.ofNullable(updateUserDTO.getLastName()).ifPresent(existingUser::setLastName);
+                    Optional.ofNullable(updateUserDTO.getWeight()).ifPresent(existingUser::setWeight);
                     Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
                     Optional.ofNullable(updateUserDTO.getFivekm()).ifPresent(existingUser::setFivekm);
                     Optional.ofNullable(updateUserDTO.getTenkm()).ifPresent(existingUser::setTenkm);

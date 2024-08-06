@@ -9,6 +9,7 @@ public class UpdateUser {
     private String firstName;
     @Size(max = 20)
     private String lastName;
+    private Double weight;
     private Double vo2max;
     @Email
     @Indexed(unique = true)
@@ -109,5 +110,13 @@ public class UpdateUser {
 
     public void setThemeColor(Integer themeColor) {
         this.themeColor = themeColor;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
     }
 }
