@@ -1,6 +1,10 @@
 package com.backend.vitalvibe.payload.user;
 
 public class UpdateWalkingResults {
+
+    // Ange sekunder från klienten.
+
+    // ================================================
     // VARIABLES
     private Integer two_km = 0;
     private Integer five_km = 0;
@@ -9,6 +13,7 @@ public class UpdateWalkingResults {
     private Integer fifteen_km = 0;
     private Integer twenty_km = 0;
 
+    // ================================================
     // GETTERS & SETTERS
     public Integer getTwo_km() {
         return two_km;

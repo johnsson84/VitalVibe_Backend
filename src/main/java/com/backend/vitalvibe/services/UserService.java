@@ -1,9 +1,11 @@
 package com.backend.vitalvibe.services;
 
 import com.backend.vitalvibe.exceptions.EntityNotFoundException;
+import com.backend.vitalvibe.models.BikingResults;
 import com.backend.vitalvibe.models.RunningResults;
 import com.backend.vitalvibe.models.User;
 import com.backend.vitalvibe.models.WalkingResults;
+import com.backend.vitalvibe.payload.user.UpdateBikingResults;
 import com.backend.vitalvibe.payload.user.UpdateRunningResults;
 import com.backend.vitalvibe.payload.user.UpdateUser;
 import com.backend.vitalvibe.payload.user.UpdateWalkingResults;
@@ -72,21 +74,32 @@ public class UserService {
         }
 
         // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
-        if (Optional.ofNullable(updateRunningResults.getFivekm()).isPresent() && updateRunningResults.getFivekm() > newRunningResults.getFivekm()) {
-            Optional.ofNullable(updateRunningResults.getFivekm()).ifPresent(newRunningResults::setFivekm);
+        if (Optional.ofNullable(updateRunningResults.getFivekm()).isPresent() &&
+                updateRunningResults.getFivekm() > newRunningResults.getFivekm()) {
+
+            newRunningResults.setFivekm(updateRunningResults.getFivekm());
         }
-        if (Optional.ofNullable(updateRunningResults.getTenkm()).isPresent() && updateRunningResults.getTenkm() > newRunningResults.getTenkm()) {
-            Optional.ofNullable(updateRunningResults.getTenkm()).ifPresent(newRunningResults::setTenkm);
+        if (Optional.ofNullable(updateRunningResults.getTenkm()).isPresent() &&
+                updateRunningResults.getTenkm() > newRunningResults.getTenkm()) {
+
+            newRunningResults.setTenkm(updateRunningResults.getTenkm());
         }
-        if (Optional.ofNullable(updateRunningResults.getFifteenkm()).isPresent() && updateRunningResults.getFifteenkm() > newRunningResults.getFifteenkm()) {
-            Optional.ofNullable(updateRunningResults.getFifteenkm()).ifPresent(newRunningResults::setFifteenkm);
+        if (Optional.ofNullable(updateRunningResults.getFifteenkm()).isPresent() &&
+                updateRunningResults.getFifteenkm() > newRunningResults.getFifteenkm()) {
+
+            newRunningResults.setFifteenkm(updateRunningResults.getFifteenkm());
         }
-        if (Optional.ofNullable(updateRunningResults.getHalfmarathon()).isPresent() && updateRunningResults.getHalfmarathon() > newRunningResults.getHalfmarathon()) {
-            Optional.ofNullable(updateRunningResults.getHalfmarathon()).ifPresent(newRunningResults::setHalfmarathon);
+        if (Optional.ofNullable(updateRunningResults.getHalfmarathon()).isPresent() &&
+                updateRunningResults.getHalfmarathon() > newRunningResults.getHalfmarathon()) {
+
+            newRunningResults.setHalfmarathon(updateRunningResults.getHalfmarathon());
         }
-        if (Optional.ofNullable(updateRunningResults.getMarathon()).isPresent() && updateRunningResults.getMarathon() > newRunningResults.getMarathon()) {
-            Optional.ofNullable(updateRunningResults.getMarathon()).ifPresent(newRunningResults::setMarathon);
+        if (Optional.ofNullable(updateRunningResults.getMarathon()).isPresent() &&
+                updateRunningResults.getMarathon() > newRunningResults.getMarathon()) {
+
+            newRunningResults.setMarathon(updateRunningResults.getMarathon());
         }
+
         // user uppdateras med nya värden till RunningResults och sedan sparas och returneras.
         foundUser.setRunningResults(newRunningResults);
         return userRepository.save(foundUser);
@@ -105,26 +118,59 @@ public class UserService {
         }
 
         // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
-        if (Optional.ofNullable(updateWalkingResults.getTwo_km()).isPresent() && updateWalkingResults.getTwo_km() > newWalkingResults.getTwo_km()) {
-            Optional.ofNullable(updateWalkingResults.getTwo_km()).ifPresent(newWalkingResults::setTwo_km);
+        if (Optional.ofNullable(updateWalkingResults.getTwo_km()).isPresent() &&
+                updateWalkingResults.getTwo_km() > newWalkingResults.getTwo_km()) {
+
+            newWalkingResults.setTwo_km(updateWalkingResults.getTwo_km());
         }
-        if (Optional.ofNullable(updateWalkingResults.getFive_km()).isPresent() && updateWalkingResults.getFive_km() > newWalkingResults.getFive_km()) {
-            Optional.ofNullable(updateWalkingResults.getFive_km()).ifPresent(newWalkingResults::setFive_km);
+        if (Optional.ofNullable(updateWalkingResults.getFive_km()).isPresent() &&
+                updateWalkingResults.getFive_km() > newWalkingResults.getFive_km()) {
+
+            newWalkingResults.setFive_km(updateWalkingResults.getFive_km());
         }
-        if (Optional.ofNullable(updateWalkingResults.getSeven_km()).isPresent() && updateWalkingResults.getSeven_km() > newWalkingResults.getSeven_km()) {
-            Optional.ofNullable(updateWalkingResults.getSeven_km()).ifPresent(newWalkingResults::setSeven_km);
+        if (Optional.ofNullable(updateWalkingResults.getSeven_km()).isPresent() &&
+                updateWalkingResults.getSeven_km() > newWalkingResults.getSeven_km()) {
+
+            newWalkingResults.setSeven_km(updateWalkingResults.getSeven_km());
         }
-        if (Optional.ofNullable(updateWalkingResults.getTen_km()).isPresent() && updateWalkingResults.getTen_km() > newWalkingResults.getTen_km()) {
-            Optional.ofNullable(updateWalkingResults.getTen_km()).ifPresent(newWalkingResults::setTen_km);
+        if (Optional.ofNullable(updateWalkingResults.getTen_km()).isPresent() &&
+                updateWalkingResults.getTen_km() > newWalkingResults.getTen_km()) {
+
+            newWalkingResults.setTen_km(updateWalkingResults.getTen_km());
         }
-        if (Optional.ofNullable(updateWalkingResults.getFifteen_km()).isPresent() && updateWalkingResults.getFifteen_km() > newWalkingResults.getFifteen_km()) {
-            Optional.ofNullable(updateWalkingResults.getFifteen_km()).ifPresent(newWalkingResults::setFifteen_km);
+        if (Optional.ofNullable(updateWalkingResults.getFifteen_km()).isPresent() &&
+                updateWalkingResults.getFifteen_km() > newWalkingResults.getFifteen_km()) {
+
+            newWalkingResults.setFifteen_km(updateWalkingResults.getFifteen_km());
         }
-        if (Optional.ofNullable(updateWalkingResults.getTwenty_km()).isPresent() && updateWalkingResults.getTwenty_km() > newWalkingResults.getTwenty_km()) {
-            Optional.ofNullable(updateWalkingResults.getTwenty_km()).ifPresent(newWalkingResults::setTwenty_km);
+        if (Optional.ofNullable(updateWalkingResults.getTwenty_km()).isPresent() &&
+                updateWalkingResults.getTwenty_km() > newWalkingResults.getTwenty_km()) {
+
+            newWalkingResults.setTwenty_km(updateWalkingResults.getTwenty_km());
         }
 
         foundUser.setWalkingResults(newWalkingResults);
+        return userRepository.save(foundUser);
+    }
+
+    public User updateUserBikingResults(String userId, UpdateBikingResults updateBikingResults) {
+        User foundUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
+        BikingResults newBikingResults;
+
+        // Kolla om running results i usern finns och inte är null.
+        if (foundUser.getBikingResults() == null) {
+            newBikingResults = new BikingResults(); // Ser till att en ny lista med tomma värden skapas.
+        } else {
+            newBikingResults = foundUser.getBikingResults(); // Sparar userns redan befintlgia värden.
+        }
+
+        if (Optional.ofNullable(updateBikingResults.getPtw_5s()).isPresent() &&
+                updateBikingResults.getPtw_5s() > newBikingResults.getPtw_5s()) {
+
+            newBikingResults.setPtw_5s(updateBikingResults.getPtw_5s());
+        }
+
+        foundUser.setBikingResults(newBikingResults);
         return userRepository.save(foundUser);
     }
 }

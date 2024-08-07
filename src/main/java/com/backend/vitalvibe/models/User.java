@@ -31,6 +31,7 @@ public class User {
 
     private RunningResults runningResults = new RunningResults();
     private WalkingResults walkingResults = new WalkingResults();
+    private BikingResults bikingResults = new BikingResults();
 
     private Integer themeColor = 1;
 
@@ -153,5 +154,13 @@ public class User {
 
     public void setWalkingResults(WalkingResults walkingResults) {
         this.walkingResults = walkingResults;
+    }
+
+    public BikingResults getBikingResults() {
+        return bikingResults;
+    }
+
+    public void setBikingResults(BikingResults bikingResults) {
+        this.bikingResults = bikingResults;
     }
 }

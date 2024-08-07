@@ -2,6 +2,7 @@ package com.backend.vitalvibe.models;
 
 public class WalkingResults {
 
+    // ================================================
     // VARIABLES
     private Integer two_km = 0;
     private Integer five_km = 0;
@@ -10,10 +11,12 @@ public class WalkingResults {
     private Integer fifteen_km = 0;
     private Integer twenty_km = 0;
 
+    // ================================================
     // CONSTRUCTORS
     public WalkingResults() {
     }
 
+    // ================================================
     // GETTERS & SETTERS
     public Integer getTwo_km() {
         return two_km;

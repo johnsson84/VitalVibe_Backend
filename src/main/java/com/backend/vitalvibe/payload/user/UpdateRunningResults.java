@@ -2,14 +2,18 @@ package com.backend.vitalvibe.payload.user;
 
 public class UpdateRunningResults {
 
-    // Från hemsidan skickar man i sekunder.
+    // Ange sekunder från klienten.
 
+    // ================================================
+    // VARIABLES
     private Integer fivekm;
     private Integer tenkm;
     private Integer fifteenkm;
     private Integer halfmarathon;
     private Integer marathon;
 
+    // ================================================
+    // GETTERS & SETTERS
     public Integer getFivekm() {
         return fivekm;
     }

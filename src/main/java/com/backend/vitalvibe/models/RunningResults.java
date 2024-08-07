@@ -2,6 +2,7 @@ package com.backend.vitalvibe.models;
 
 public class RunningResults {
 
+    // ================================================
     // VARIABLES
     private Integer fivekm = 0;
     private Integer tenkm = 0;
@@ -9,10 +10,12 @@ public class RunningResults {
     private Integer halfmarathon = 0;
     private Integer marathon = 0;
 
+    // ================================================
     // CONSTRUCTORS
     public RunningResults() {
     }
 
+    // ================================================
     // GETTERS & SETTERS
     public Integer getFivekm() {
         return fivekm;
