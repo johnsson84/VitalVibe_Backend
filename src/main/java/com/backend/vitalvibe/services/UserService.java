@@ -3,8 +3,10 @@ package com.backend.vitalvibe.services;
 import com.backend.vitalvibe.exceptions.EntityNotFoundException;
 import com.backend.vitalvibe.models.RunningResults;
 import com.backend.vitalvibe.models.User;
-import com.backend.vitalvibe.payload.user.UpdateRunning;
+import com.backend.vitalvibe.models.WalkingResults;
+import com.backend.vitalvibe.payload.user.UpdateRunningResults;
 import com.backend.vitalvibe.payload.user.UpdateUser;
+import com.backend.vitalvibe.payload.user.UpdateWalkingResults;
 import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,11 +38,6 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getFirstName()).ifPresent(existingUser::setFirstName);
                     Optional.ofNullable(updateUserDTO.getLastName()).ifPresent(existingUser::setLastName);
                     Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
-                    /*Optional.ofNullable(updateUserDTO.getFivekm()).ifPresent(existingUser::setFivekm);
-                    Optional.ofNullable(updateUserDTO.getTenkm()).ifPresent(existingUser::setTenkm);
-                    Optional.ofNullable(updateUserDTO.getFifteenkm()).ifPresent(existingUser::setFifteenkm);
-                    Optional.ofNullable(updateUserDTO.getHalfmarathon()).ifPresent(existingUser::setHalfmarathon);
-                    Optional.ofNullable(updateUserDTO.getMarathon()).ifPresent(existingUser::setMarathon);*/
                     Optional.ofNullable(updateUserDTO.getThemeColor()).ifPresent(existingUser::setThemeColor);
 
                     return userRepository.save(existingUser);
@@ -64,17 +61,70 @@ public class UserService {
     }
 
     // update user running results
-    public User updateUserRunningResults(String userId, UpdateRunning updateRunning) {
+    public User updateUserRunningResults(String userId, UpdateRunningResults updateRunningResults) {
         User foundUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
-        RunningResults newRunningResults = new RunningResults();
+        RunningResults newRunningResults;
+        // Kolla om running results i usern finns och inte är null.
         if (foundUser.getRunningResults() == null) {
-            newRunningResults.setFivekm("0 min");
+            newRunningResults = new RunningResults(); // Ser till att en ny lista med tomma värden skapas.
         } else {
-            newRunningResults = foundUser.getRunningResults();
+            newRunningResults = foundUser.getRunningResults(); // Sparar userns redan befintlgia värden.
         }
 
-        newRunningResults.setFivekm(updateRunning.getFivekm());
+        // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
+        if (Optional.ofNullable(updateRunningResults.getFivekm()).isPresent() && updateRunningResults.getFivekm() > newRunningResults.getFivekm()) {
+            Optional.ofNullable(updateRunningResults.getFivekm()).ifPresent(newRunningResults::setFivekm);
+        }
+        if (Optional.ofNullable(updateRunningResults.getTenkm()).isPresent() && updateRunningResults.getTenkm() > newRunningResults.getTenkm()) {
+            Optional.ofNullable(updateRunningResults.getTenkm()).ifPresent(newRunningResults::setTenkm);
+        }
+        if (Optional.ofNullable(updateRunningResults.getFifteenkm()).isPresent() && updateRunningResults.getFifteenkm() > newRunningResults.getFifteenkm()) {
+            Optional.ofNullable(updateRunningResults.getFifteenkm()).ifPresent(newRunningResults::setFifteenkm);
+        }
+        if (Optional.ofNullable(updateRunningResults.getHalfmarathon()).isPresent() && updateRunningResults.getHalfmarathon() > newRunningResults.getHalfmarathon()) {
+            Optional.ofNullable(updateRunningResults.getHalfmarathon()).ifPresent(newRunningResults::setHalfmarathon);
+        }
+        if (Optional.ofNullable(updateRunningResults.getMarathon()).isPresent() && updateRunningResults.getMarathon() > newRunningResults.getMarathon()) {
+            Optional.ofNullable(updateRunningResults.getMarathon()).ifPresent(newRunningResults::setMarathon);
+        }
+        // user uppdateras med nya värden till RunningResults och sedan sparas och returneras.
         foundUser.setRunningResults(newRunningResults);
+        return userRepository.save(foundUser);
+    }
+
+    // Update users walking results
+    public User updateUserWalkingResults(String userId, UpdateWalkingResults updateWalkingResults) {
+        User foundUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
+        WalkingResults newWalkingResults;
+
+        // Kolla om running results i usern finns och inte är null.
+        if (foundUser.getWalkingResults() == null) {
+            newWalkingResults = new WalkingResults(); // Ser till att en ny lista med tomma värden skapas.
+        } else {
+            newWalkingResults = foundUser.getWalkingResults(); // Sparar userns redan befintlgia värden.
+        }
+
+        // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
+        if (Optional.ofNullable(updateWalkingResults.getTwo_km()).isPresent() && updateWalkingResults.getTwo_km() > newWalkingResults.getTwo_km()) {
+            Optional.ofNullable(updateWalkingResults.getTwo_km()).ifPresent(newWalkingResults::setTwo_km);
+        }
+        if (Optional.ofNullable(updateWalkingResults.getFive_km()).isPresent() && updateWalkingResults.getFive_km() > newWalkingResults.getFive_km()) {
+            Optional.ofNullable(updateWalkingResults.getFive_km()).ifPresent(newWalkingResults::setFive_km);
+        }
+        if (Optional.ofNullable(updateWalkingResults.getSeven_km()).isPresent() && updateWalkingResults.getSeven_km() > newWalkingResults.getSeven_km()) {
+            Optional.ofNullable(updateWalkingResults.getSeven_km()).ifPresent(newWalkingResults::setSeven_km);
+        }
+        if (Optional.ofNullable(updateWalkingResults.getTen_km()).isPresent() && updateWalkingResults.getTen_km() > newWalkingResults.getTen_km()) {
+            Optional.ofNullable(updateWalkingResults.getTen_km()).ifPresent(newWalkingResults::setTen_km);
+        }
+        if (Optional.ofNullable(updateWalkingResults.getFifteen_km()).isPresent() && updateWalkingResults.getFifteen_km() > newWalkingResults.getFifteen_km()) {
+            Optional.ofNullable(updateWalkingResults.getFifteen_km()).ifPresent(newWalkingResults::setFifteen_km);
+        }
+        if (Optional.ofNullable(updateWalkingResults.getTwenty_km()).isPresent() && updateWalkingResults.getTwenty_km() > newWalkingResults.getTwenty_km()) {
+            Optional.ofNullable(updateWalkingResults.getTwenty_km()).ifPresent(newWalkingResults::setTwenty_km);
+        }
+
+        foundUser.setWalkingResults(newWalkingResults);
         return userRepository.save(foundUser);
     }
 }

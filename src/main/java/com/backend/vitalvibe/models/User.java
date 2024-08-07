@@ -27,15 +27,10 @@ public class User {
 
     @NotNull
     private Integer age;
-
-
     private Double vo2max;
-    /*private String fivekm;
-    private String tenkm;
-    private String fifteenkm;
-    private String halfmarathon;
-    private String marathon;*/
-    private RunningResults runningResults;
+
+    private RunningResults runningResults = new RunningResults();
+    private WalkingResults walkingResults = new WalkingResults();
 
     private Integer themeColor = 1;
 
@@ -128,46 +123,6 @@ public class User {
         this.vo2max = vo2max;
     }
 
-    /*public String getFivekm() {
-        return fivekm;
-    }
-
-    public void setFivekm(String fivekm) {
-        this.fivekm = fivekm;
-    }
-
-    public String getTenkm() {
-        return tenkm;
-    }
-
-    public void setTenkm(String tenkm) {
-        this.tenkm = tenkm;
-    }
-
-    public String getFifteenkm() {
-        return fifteenkm;
-    }
-
-    public void setFifteenkm(String fifteenkm) {
-        this.fifteenkm = fifteenkm;
-    }
-
-    public String getHalfmarathon() {
-        return halfmarathon;
-    }
-
-    public void setHalfmarathon(String halfmarathon) {
-        this.halfmarathon = halfmarathon;
-    }
-
-    public String getMarathon() {
-        return marathon;
-    }
-
-    public void setMarathon(String marathon) {
-        this.marathon = marathon;
-    }*/
-
     public Integer getAge() {
         return age;
     }
@@ -190,5 +145,13 @@ public class User {
 
     public void setRunningResults(RunningResults runningResults) {
         this.runningResults = runningResults;
+    }
+
+    public WalkingResults getWalkingResults() {
+        return walkingResults;
+    }
+
+    public void setWalkingResults(WalkingResults walkingResults) {
+        this.walkingResults = walkingResults;
     }
 }

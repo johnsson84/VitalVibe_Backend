@@ -1,19 +1,15 @@
-package com.backend.vitalvibe.models;
+package com.backend.vitalvibe.payload.user;
 
-public class RunningResults {
+public class UpdateRunningResults {
 
-    // VARIABLES
-    private Integer fivekm = 0;
-    private Integer tenkm = 0;
-    private Integer fifteenkm = 0;
-    private Integer halfmarathon = 0;
-    private Integer marathon = 0;
+    // Från hemsidan skickar man i sekunder.
 
-    // CONSTRUCTORS
-    public RunningResults() {
-    }
+    private Integer fivekm;
+    private Integer tenkm;
+    private Integer fifteenkm;
+    private Integer halfmarathon;
+    private Integer marathon;
 
-    // GETTERS & SETTERS
     public Integer getFivekm() {
         return fivekm;
     }

@@ -2,8 +2,9 @@ package com.backend.vitalvibe.controllers;
 
 import com.backend.vitalvibe.exceptions.EntityNotFoundException;
 import com.backend.vitalvibe.models.User;
-import com.backend.vitalvibe.payload.user.UpdateRunning;
+import com.backend.vitalvibe.payload.user.UpdateRunningResults;
 import com.backend.vitalvibe.payload.user.UpdateUser;
+import com.backend.vitalvibe.payload.user.UpdateWalkingResults;
 import com.backend.vitalvibe.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,10 +58,23 @@ public class UserController {
     }
 
     // Add running result
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PutMapping("/addRunning/{userId}")
-    public ResponseEntity<?> addRunning(@PathVariable("userId") String userId, @RequestBody UpdateRunning updateRunning) {
+    public ResponseEntity<?> addRunning(@PathVariable("userId") String userId, @RequestBody UpdateRunningResults updateRunningResults) {
         try {
-            User updatedUser = userService.updateUserRunningResults(userId, updateRunning);
+            User updatedUser = userService.updateUserRunningResults(userId, updateRunningResults);
+            return ResponseEntity.ok(updatedUser);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    // Add walking result
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PutMapping("/addWalking/{userId}")
+    public ResponseEntity<?> addWalking(@PathVariable("userId") String userId, @RequestBody UpdateWalkingResults updateWalkingResults) {
+        try {
+            User updatedUser = userService.updateUserWalkingResults(userId, updateWalkingResults);
             return ResponseEntity.ok(updatedUser);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
