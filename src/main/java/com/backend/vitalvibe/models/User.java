@@ -27,6 +27,9 @@ public class User {
 
     @NotNull
     private Integer age;
+
+    private Double weight;
+
     private Double vo2max;
 
     private RunningResults runningResults = new RunningResults();
@@ -49,13 +52,14 @@ public class User {
      private Set<Role> roles = new HashSet<>();
     // ["ROLE_USER", "ROLE MODERATOR"]
 
-    public User(String username, String email, String password, String firstName, String lastName, Integer age, Double vo2max) {
+    public User(String username, String email, String password, String firstName, String lastName, Integer age,Double weight, Double vo2max) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.weight = weight;
         this.vo2max = vo2max;
     }
 
@@ -162,5 +166,14 @@ public class User {
 
     public void setBikingResults(BikingResults bikingResults) {
         this.bikingResults = bikingResults;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+
     }
 }

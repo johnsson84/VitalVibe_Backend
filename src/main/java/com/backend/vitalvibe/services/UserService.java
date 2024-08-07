@@ -39,6 +39,7 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getEmail()).ifPresent(existingUser::setEmail);
                     Optional.ofNullable(updateUserDTO.getFirstName()).ifPresent(existingUser::setFirstName);
                     Optional.ofNullable(updateUserDTO.getLastName()).ifPresent(existingUser::setLastName);
+                    Optional.ofNullable(updateUserDTO.getWeight()).ifPresent(existingUser::setWeight);
                     Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
                     Optional.ofNullable(updateUserDTO.getThemeColor()).ifPresent(existingUser::setThemeColor);
 
@@ -153,6 +154,7 @@ public class UserService {
         return userRepository.save(foundUser);
     }
 
+    // Update users biking results
     public User updateUserBikingResults(String userId, UpdateBikingResults updateBikingResults) {
         User foundUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Can not find user"));
         BikingResults newBikingResults;
@@ -164,10 +166,33 @@ public class UserService {
             newBikingResults = foundUser.getBikingResults(); // Sparar userns redan befintlgia värden.
         }
 
-        if (Optional.ofNullable(updateBikingResults.getPtw_5s()).isPresent() &&
-                updateBikingResults.getPtw_5s() > newBikingResults.getPtw_5s()) {
-
-            newBikingResults.setPtw_5s(updateBikingResults.getPtw_5s());
+        if (Optional.ofNullable(updateBikingResults.getPtw_5s()).isPresent()) {
+            double convertedValue = (updateBikingResults.getPtw_5s() / foundUser.getWeight());
+            double roundedValue = Math.floor(convertedValue * 100) / 100;
+            if (roundedValue > newBikingResults.getPtw_5s()) {
+                newBikingResults.setPtw_5s(roundedValue);
+            }
+        }
+        if (Optional.ofNullable(updateBikingResults.getPtw_60s()).isPresent()) {
+            double convertedValue = (updateBikingResults.getPtw_60s() / foundUser.getWeight());
+            double roundedValue = Math.floor(convertedValue * 100) / 100;
+            if (roundedValue > newBikingResults.getPtw_60s()) {
+                newBikingResults.setPtw_60s(roundedValue);
+            }
+        }
+        if (Optional.ofNullable(updateBikingResults.getPtw_5min()).isPresent()) {
+            double convertedValue = (updateBikingResults.getPtw_5min() / foundUser.getWeight());
+            double roundedValue = Math.floor(convertedValue * 100) / 100;
+            if (roundedValue > newBikingResults.getPtw_5min()) {
+                newBikingResults.setPtw_5min(roundedValue);
+            }
+        }
+        if (Optional.ofNullable(updateBikingResults.getPtw_60min()).isPresent()) {
+            double convertedValue = (updateBikingResults.getPtw_60min() / foundUser.getWeight());
+            double roundedValue = Math.floor(convertedValue * 100) / 100;
+            if (roundedValue > newBikingResults.getPtw_60min()) {
+                newBikingResults.setPtw_60min(roundedValue);
+            }
         }
 
         foundUser.setBikingResults(newBikingResults);

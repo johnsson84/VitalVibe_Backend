@@ -23,6 +23,7 @@ public class SignupRequest {
 
     @NotNull
     private int age;
+    private double weight;
 
 
     private double vo2max;
@@ -140,5 +141,13 @@ public class SignupRequest {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 }
