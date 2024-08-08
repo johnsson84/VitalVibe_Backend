@@ -38,7 +38,7 @@ public class User {
 
     private Integer themeColor = 1;
 
-    private String photolink;
+    private String photolink = "none";
 
     @NotBlank
     @Email
