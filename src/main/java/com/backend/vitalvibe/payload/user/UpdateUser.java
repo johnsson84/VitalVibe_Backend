@@ -17,6 +17,7 @@ public class UpdateUser {
     private Integer themeColor;
     @Size(min = 6, max = 40)
     private String password;
+    private String photolink;
 
     public String getFirstName() {
         return firstName;
@@ -73,5 +74,13 @@ public class UpdateUser {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public String getPhotolink() {
+        return photolink;
+    }
+
+    public void setPhotolink(String photolink) {
+        this.photolink = photolink;
     }
 }

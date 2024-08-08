@@ -38,6 +38,7 @@ public class User {
 
     private Integer themeColor = 1;
 
+    private String photolink;
 
     @NotBlank
     @Email
@@ -175,5 +176,13 @@ public class User {
     public void setWeight(Double weight) {
         this.weight = weight;
 
+    }
+
+    public String getPhotolink() {
+        return photolink;
+    }
+
+    public void setPhotolink(String photolink) {
+        this.photolink = photolink;
     }
 }

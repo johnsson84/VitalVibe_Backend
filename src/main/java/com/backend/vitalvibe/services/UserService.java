@@ -42,6 +42,7 @@ public class UserService {
                     Optional.ofNullable(updateUserDTO.getWeight()).ifPresent(existingUser::setWeight);
                     Optional.ofNullable(updateUserDTO.getVo2max()).ifPresent(existingUser::setVo2max);
                     Optional.ofNullable(updateUserDTO.getThemeColor()).ifPresent(existingUser::setThemeColor);
+                    Optional.ofNullable(updateUserDTO.getPhotolink()).ifPresent(existingUser::setPhotolink);
 
                     return userRepository.save(existingUser);
                 })
