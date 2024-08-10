@@ -6,12 +6,12 @@ public class UpdateWalkingResults {
 
     // ================================================
     // VARIABLES
-    private Integer two_km = 0;
-    private Integer five_km = 0;
-    private Integer seven_km = 0;
-    private Integer ten_km = 0;
-    private Integer fifteen_km = 0;
-    private Integer twenty_km = 0;
+    private Integer two_km;
+    private Integer five_km;
+    private Integer seven_km;
+    private Integer ten_km;
+    private Integer fifteen_km;
+    private Integer twenty_km;
 
     // ================================================
     // GETTERS & SETTERS

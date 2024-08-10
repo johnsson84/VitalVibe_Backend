@@ -2,15 +2,15 @@ package com.backend.vitalvibe.payload.user;
 
 public class UpdateBikingResults {
 
-    // Ange watt från klienten.
+    // Ange total watt från klienten för angiven test period.
     // Se info i BikingResults.
 
     // ================================================
     // VARIABLES
-    private Double ptw_5s = 0d;
-    private Double ptw_60s = 0d;
-    private Double ptw_5min = 0d;
-    private Double ptw_60min = 0d;
+    private Double ptw_5s;
+    private Double ptw_60s;
+    private Double ptw_5min;
+    private Double ptw_60min;
 
     // ================================================
     // GETTERS & SETTERS

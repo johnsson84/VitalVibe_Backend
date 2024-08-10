@@ -7,7 +7,7 @@ public class RunningResults {
     private Integer fivekm = 0;
     private Integer tenkm = 0;
     private Integer fifteenkm = 0;
-    private Integer halfmarathon = 0;
+    private Integer halfmarathon= 0;
     private Integer marathon = 0;
 
     // ================================================

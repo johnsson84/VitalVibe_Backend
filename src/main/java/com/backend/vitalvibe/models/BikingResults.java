@@ -9,10 +9,10 @@ public class BikingResults {
 
     // ================================================
     // VARIABLES
-    private Double ptw_5s = 0d;
-    private Double ptw_60s = 0d;
-    private Double ptw_5min = 0d;
-    private Double ptw_60min = 0d;
+    private Double ptw_5s = 0.0;
+    private Double ptw_60s = 0.0;
+    private Double ptw_5min = 0.0;
+    private Double ptw_60min = 0.0;
 
     // ================================================
     // CONSTRUCTORS

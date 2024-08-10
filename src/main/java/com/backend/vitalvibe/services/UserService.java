@@ -170,7 +170,7 @@ public class UserService {
         if (Optional.ofNullable(updateBikingResults.getPtw_5s()).isPresent()) {
             double convertedValue = (updateBikingResults.getPtw_5s() / foundUser.getWeight());
             double roundedValue = Math.floor(convertedValue * 100) / 100;
-            if (roundedValue > newBikingResults.getPtw_5s()) {
+            if (roundedValue > newBikingResults.getPtw_5s() || newBikingResults.getPtw_5s() != null) {
                 newBikingResults.setPtw_5s(roundedValue);
             }
         }
