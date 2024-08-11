@@ -14,14 +14,11 @@ public class UpdateUser {
     @Email
     @Indexed(unique = true)
     private String email;
-    private String fivekm;
-    private String tenkm;
-    private String fifteenkm;
-    private String halfmarathon;
-    private String marathon;
     private Integer themeColor;
     @Size(min = 6, max = 40)
     private String password;
+    @Size(max = 200)
+    private String photolink;
 
     public String getFirstName() {
         return firstName;
@@ -46,46 +43,6 @@ public class UpdateUser {
 
     public void setVo2max(Double vo2max) {
         this.vo2max = vo2max;
-    }
-
-    public String getFivekm() {
-        return fivekm;
-    }
-
-    public void setFivekm(String fivekm) {
-        this.fivekm = fivekm;
-    }
-
-    public String getTenkm() {
-        return tenkm;
-    }
-
-    public void setTenkm(String tenkm) {
-        this.tenkm = tenkm;
-    }
-
-    public String getFifteenkm() {
-        return fifteenkm;
-    }
-
-    public void setFifteenkm(String fifteenkm) {
-        this.fifteenkm = fifteenkm;
-    }
-
-    public String getHalfmarathon() {
-        return halfmarathon;
-    }
-
-    public void setHalfmarathon(String halfmarathon) {
-        this.halfmarathon = halfmarathon;
-    }
-
-    public String getMarathon() {
-        return marathon;
-    }
-
-    public void setMarathon(String marathon) {
-        this.marathon = marathon;
     }
 
     public String getPassword() {
@@ -118,5 +75,13 @@ public class UpdateUser {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public String getPhotolink() {
+        return photolink;
+    }
+
+    public void setPhotolink(String photolink) {
+        this.photolink = photolink;
     }
 }
