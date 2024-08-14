@@ -5,7 +5,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Document(collection = "users")
@@ -53,6 +55,8 @@ public class User {
      private Set<Role> roles = new HashSet<>();
     // ["ROLE_USER", "ROLE MODERATOR"]
 
+    private List<UserChallenge> challenges;
+
     public User(String username, String email, String password, String firstName, String lastName, Integer age,Double weight, Double vo2max) {
         this.username = username;
         this.email = email;
@@ -62,6 +66,7 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.vo2max = vo2max;
+        this.challenges = new ArrayList<>();
     }
 
     public String getId() {
@@ -184,5 +189,13 @@ public class User {
 
     public void setPhotolink(String photolink) {
         this.photolink = photolink;
+    }
+
+    public List<UserChallenge> getChallenges() {
+        return challenges;
+    }
+
+    public void setChallenges(List<UserChallenge> challenges) {
+        this.challenges = challenges;
     }
 }
