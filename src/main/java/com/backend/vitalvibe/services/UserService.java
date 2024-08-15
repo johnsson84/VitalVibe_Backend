@@ -9,6 +9,7 @@ import com.backend.vitalvibe.payload.user.UpdateBikingResults;
 import com.backend.vitalvibe.payload.user.UpdateRunningResults;
 import com.backend.vitalvibe.payload.user.UpdateUser;
 import com.backend.vitalvibe.payload.user.UpdateWalkingResults;
+import com.backend.vitalvibe.repositories.ChallengeRepository;
 import com.backend.vitalvibe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,14 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
     @Autowired
+    ChallengeRepository challengeRepository;
+    @Autowired
     PasswordEncoder encoder;
+
+    // Activated challenge
+    public User activateChallenge(String userId, String challengeId) {
+        
+    }
 
 
     // update user
