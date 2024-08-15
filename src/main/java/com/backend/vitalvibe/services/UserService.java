@@ -85,27 +85,27 @@ public class UserService {
 
         // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
         if (Optional.ofNullable(updateRunningResults.getFivekm()).isPresent() &&
-                updateRunningResults.getFivekm() > newRunningResults.getFivekm()) {
+                updateRunningResults.getFivekm() < newRunningResults.getFivekm()) {
 
             newRunningResults.setFivekm(updateRunningResults.getFivekm());
         }
         if (Optional.ofNullable(updateRunningResults.getTenkm()).isPresent() &&
-                updateRunningResults.getTenkm() > newRunningResults.getTenkm()) {
+                updateRunningResults.getTenkm() < newRunningResults.getTenkm()) {
 
             newRunningResults.setTenkm(updateRunningResults.getTenkm());
         }
         if (Optional.ofNullable(updateRunningResults.getFifteenkm()).isPresent() &&
-                updateRunningResults.getFifteenkm() > newRunningResults.getFifteenkm()) {
+                updateRunningResults.getFifteenkm() < newRunningResults.getFifteenkm()) {
 
             newRunningResults.setFifteenkm(updateRunningResults.getFifteenkm());
         }
         if (Optional.ofNullable(updateRunningResults.getHalfmarathon()).isPresent() &&
-                updateRunningResults.getHalfmarathon() > newRunningResults.getHalfmarathon()) {
+                updateRunningResults.getHalfmarathon() < newRunningResults.getHalfmarathon()) {
 
             newRunningResults.setHalfmarathon(updateRunningResults.getHalfmarathon());
         }
         if (Optional.ofNullable(updateRunningResults.getMarathon()).isPresent() &&
-                updateRunningResults.getMarathon() > newRunningResults.getMarathon()) {
+                updateRunningResults.getMarathon() < newRunningResults.getMarathon()) {
 
             newRunningResults.setMarathon(updateRunningResults.getMarathon());
         }
@@ -129,32 +129,32 @@ public class UserService {
 
         // if satsen kollar om värden från body är större än redan befintliga värden innan dem anges
         if (Optional.ofNullable(updateWalkingResults.getTwo_km()).isPresent() &&
-                updateWalkingResults.getTwo_km() > newWalkingResults.getTwo_km()) {
+                updateWalkingResults.getTwo_km() < newWalkingResults.getTwo_km()) {
 
             newWalkingResults.setTwo_km(updateWalkingResults.getTwo_km());
         }
         if (Optional.ofNullable(updateWalkingResults.getFive_km()).isPresent() &&
-                updateWalkingResults.getFive_km() > newWalkingResults.getFive_km()) {
+                updateWalkingResults.getFive_km() < newWalkingResults.getFive_km()) {
 
             newWalkingResults.setFive_km(updateWalkingResults.getFive_km());
         }
         if (Optional.ofNullable(updateWalkingResults.getSeven_km()).isPresent() &&
-                updateWalkingResults.getSeven_km() > newWalkingResults.getSeven_km()) {
+                updateWalkingResults.getSeven_km() < newWalkingResults.getSeven_km()) {
 
             newWalkingResults.setSeven_km(updateWalkingResults.getSeven_km());
         }
         if (Optional.ofNullable(updateWalkingResults.getTen_km()).isPresent() &&
-                updateWalkingResults.getTen_km() > newWalkingResults.getTen_km()) {
+                updateWalkingResults.getTen_km() < newWalkingResults.getTen_km()) {
 
             newWalkingResults.setTen_km(updateWalkingResults.getTen_km());
         }
         if (Optional.ofNullable(updateWalkingResults.getFifteen_km()).isPresent() &&
-                updateWalkingResults.getFifteen_km() > newWalkingResults.getFifteen_km()) {
+                updateWalkingResults.getFifteen_km() < newWalkingResults.getFifteen_km()) {
 
             newWalkingResults.setFifteen_km(updateWalkingResults.getFifteen_km());
         }
         if (Optional.ofNullable(updateWalkingResults.getTwenty_km()).isPresent() &&
-                updateWalkingResults.getTwenty_km() > newWalkingResults.getTwenty_km()) {
+                updateWalkingResults.getTwenty_km() < newWalkingResults.getTwenty_km()) {
 
             newWalkingResults.setTwenty_km(updateWalkingResults.getTwenty_km());
         }
