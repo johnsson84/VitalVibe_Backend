@@ -170,28 +170,28 @@ public class UserService {
         if (Optional.ofNullable(updateBikingResults.getPtw_5s()).isPresent()) {
             double convertedValue = (updateBikingResults.getPtw_5s() / foundUser.getWeight());
             double roundedValue = Math.floor(convertedValue * 100) / 100;
-            if (roundedValue < newBikingResults.getPtw_5s() || newBikingResults.getPtw_5s() != null) {
+            if (roundedValue > newBikingResults.getPtw_5s() || newBikingResults.getPtw_5s() != null) {
                 newBikingResults.setPtw_5s(roundedValue);
             }
         }
         if (Optional.ofNullable(updateBikingResults.getPtw_60s()).isPresent()) {
             double convertedValue = (updateBikingResults.getPtw_60s() / foundUser.getWeight());
             double roundedValue = Math.floor(convertedValue * 100) / 100;
-            if (roundedValue < newBikingResults.getPtw_60s()) {
+            if (roundedValue > newBikingResults.getPtw_60s()) {
                 newBikingResults.setPtw_60s(roundedValue);
             }
         }
         if (Optional.ofNullable(updateBikingResults.getPtw_5min()).isPresent()) {
             double convertedValue = (updateBikingResults.getPtw_5min() / foundUser.getWeight());
             double roundedValue = Math.floor(convertedValue * 100) / 100;
-            if (roundedValue < newBikingResults.getPtw_5min()) {
+            if (roundedValue > newBikingResults.getPtw_5min()) {
                 newBikingResults.setPtw_5min(roundedValue);
             }
         }
         if (Optional.ofNullable(updateBikingResults.getPtw_60min()).isPresent()) {
             double convertedValue = (updateBikingResults.getPtw_60min() / foundUser.getWeight());
             double roundedValue = Math.floor(convertedValue * 100) / 100;
-            if (roundedValue < newBikingResults.getPtw_60min()) {
+            if (roundedValue > newBikingResults.getPtw_60min()) {
                 newBikingResults.setPtw_60min(roundedValue);
             }
         }
