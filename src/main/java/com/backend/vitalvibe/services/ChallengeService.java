@@ -21,7 +21,10 @@ public class ChallengeService {
 
         Challenge newChallenge = new Challenge();
         newChallenge.setDistance(createChallenge.getDistance());
-        newChallenge.setEndDate(LocalDateTime.now().plusDays(createChallenge.getEndDate()));
+        //eventuellt modifierbar
+        LocalDateTime countDown = LocalDateTime.now().plusDays(createChallenge.getEndDate());
+        newChallenge.setEndDate(countDown);
+
 
         challengeRepository.save(newChallenge);
 
